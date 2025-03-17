@@ -2,6 +2,14 @@ import pandas as pd
 import time
 import ollama
 import ast
+import pandas as pd 
+from supabase import create_client, Client
+import numpy as np 
+
+url = "https://uynzhpmwnykzkafwuhjv.supabase.co"  # Replace with your Supabase project URL
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bnpocG13bnlremthZnd1aGp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAwNTc4MjQsImV4cCI6MjA0NTYzMzgyNH0.dxkPBlfRseyaQkcuQazvrEwTP2IrSzLEGMBMvdEj8MU"  # Replace with your Supabase anon/public key
+supabase = create_client(url, key) 
+
 
 def get_response(prompt: str):
     response = ollama.chat(model='gemma2:27b', messages=[{'role': 'user', 'content': prompt}])
